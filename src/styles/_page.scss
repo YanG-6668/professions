@@ -1,0 +1,431 @@
+.portfolio {
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  background: radial-gradient(rgba(43, 55, 96, 1), rgba(11, 1, 45, 1));
+}
+
+.navigation {
+  min-height: 10vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  &__logo {
+    font-size: 20px;
+    z-index: 2;
+  }
+
+  &__menu {
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &__open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    background: #fff;
+    z-index: 1;
+    color: #000;
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 5%;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-100%);
+
+    h3 {
+      font-size: 28px;
+      padding-bottom: 40px;
+    }
+
+    a {
+      font-size: 18px;
+    }
+  }
+
+  &__contact {
+    grid-column: 2 / 3;
+  }
+
+  &__community-link {
+    padding: 0 20px;
+  }
+}
+
+.page {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 5% 1fr 1fr 1fr 5%;
+
+  &__details {
+    grid-column: 2 / 3;
+    align-self: end;
+
+    h1 {
+      font-size: 64px;
+      font-family: "PoppinsR", sans-serif;
+    }
+
+    h2 {
+      font-size: 42px;
+      padding: 20px 0;
+    }
+
+    p {
+      font-size: 24px;
+      padding: 20px 0 50px;
+    }
+  }
+
+  &__hero {
+    overflow: hidden;
+    height: 500px;
+    align-self: center;
+    justify-self: center;
+
+    a {
+      display: flex;
+    }
+
+    img {
+      height: 500px;
+      transition: transform 0.3s ease-out;
+      cursor: pointer;
+    }
+
+    .modal-right {
+      transform: translate(0%, 10%);
+    }
+    
+    .modal-left {
+      transform: translate(0%, -10%);
+    }
+
+    &:hover .modal-right,
+    :hover .modal-left {
+      transform: translate(0%, 0%);
+    }
+  }
+}
+
+.chef,
+.hairstyle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pages {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h3 {
+    font-size: 24px;
+    padding: 30px;
+  }
+
+  svg {
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(2);
+
+    &:hover {
+      animation: dot 0.5s ease-in-out infinite alternate;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes dot {
+  0% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(4);
+  }
+}
+
+/* photo-chef-hairstyle style */
+
+.person {
+  &__promo {
+    height: 50vh;
+    width: 100%;
+    position: relative;
+  
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+    h1 {
+      font-size: 42px;
+    }
+
+    h3 {
+      padding: 10px 0;
+      font-size: 32px;
+    }
+  }
+
+  &__story,
+  &__work {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    padding: 80px 0;
+  }
+
+  &__story-description,
+  &__work-description {
+    width: 50%;
+
+    h3 {
+      font-size: 36px;
+      padding-bottom: 30px;
+    }
+
+    p {
+      font-size: 20px;
+      padding: 20px 0;
+    }
+  }
+
+  &__work-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+
+    img {
+      align-self: stretch;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .page {
+    grid-template-columns: 5% 1fr 5%;
+    grid-template-rows: 65% 35%;
+    align-items: center;
+
+    &__hero {
+      grid-column: 2 / 3;
+      height: auto;
+
+      img {
+        height: 500px;
+      }
+    }
+
+    &__details {
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+      text-align: center;
+
+      h1 {
+        font-size: 48px;
+      }
+  
+      h2 {
+        font-size: 38px;
+      }
+    }
+  }
+  
+  .person {
+
+    &__story,
+    &__work {
+      flex-direction: column;
+    }
+
+    &__story-description,
+    &__work-description {
+      width: 100%;
+    }
+
+    &__work-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    &__profile {
+      padding-top: 30px;
+      text-align: center;
+      
+      img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .page {
+
+    &__hero {
+
+      img {
+        height: 400px;
+      }
+    }
+
+    &__details {
+
+      h1 {
+        font-size: 42px;
+      }
+  
+      h2 {
+        font-size: 32px;
+      }
+    }
+  }
+
+  .pages {
+
+    h3 {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+
+    svg {
+      cursor: pointer;
+      opacity: 0.5;
+      transform: scale(2);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .navigation {
+    &__open {
+      height: 50vh;
+  
+      h3 {
+        font-size: 22px;
+      }
+  
+      a {
+        font-size: 16px;
+      }
+    }
+
+    &__community-link {
+      padding: 0 10px;
+    }
+  }
+
+  .page {
+
+    &__hero {
+
+      img {
+        height: 300px;
+      }
+    }
+
+    &__details {
+
+      h1 {
+        font-size: 34px;
+      }
+      
+      h2 {
+        padding: 0;
+        font-size: 28px;
+      }
+
+      p {
+        padding-bottom: 70px;
+      }
+    }
+  }
+
+  .pages {
+    left: 50%;
+    right: 0;
+    display: flex;
+    justify-content: space-evenly;
+    top: 96%;
+    transform: translate(-50%, -96%);
+    
+    h3 {
+      display: none;
+    }
+    
+    svg {
+      cursor: pointer;
+      opacity: 0.5;
+      transform: scale(1.5);
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .page {
+
+    &__hero {
+
+      img {
+        height: 250px;
+      }
+    }
+
+    &__details {
+
+      h1 {
+        font-size: 32px;
+        margin: 0;
+      }
+      
+      h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        padding: 20px 0 100px;
+      }
+    }
+  }
+}
