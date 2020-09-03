@@ -1,6 +1,14 @@
 @font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-Regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+  font-family: "PoppinsL";
+  src: url(../fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: "PoppinsR";
+  src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "PoppinsM";
+  src: url(../fonts/Poppins-Medium.ttf);
 }

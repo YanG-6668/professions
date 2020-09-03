@@ -1,7 +1,9 @@
+@import "normalize";
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "page";
 
 body {
-  background: $c-gray;
+  font-family: "PoppinsL", sans-serif;
 }
